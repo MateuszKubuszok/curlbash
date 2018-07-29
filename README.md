@@ -43,7 +43,7 @@ sudo make install
 and remove with
 
 ```bash
-sudo make remove
+sudo make uninstall
 ```
 
 By default it will install to `/usr/bin`, but you can override it with `INSTALL_DIR` environment variable.
