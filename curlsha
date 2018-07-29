@@ -1,0 +1,13 @@
+#!/bin/env bash
+set -Eeuo pipefail
+
+if [ -z "$1" ]; then
+  >&2 echo "$0 should take 1 argument!"
+  >&2 echo "usage: $0 [url]"
+  exit 1
+fi
+
+script_tmp=`mktemp`
+curl $1 > $script_tmp
+sha_value=`sha256sum < $script_tmp | cut -d' ' -f 1`
+echo $sha_value
